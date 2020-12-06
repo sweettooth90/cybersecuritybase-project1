@@ -8,6 +8,8 @@
 
 It is recommended to use Java 8.
 
+
+
 ## Issues
 
 ### **FLAW 1**
@@ -31,6 +33,7 @@ Re-entering the same name on form page will cause a information leak where sensi
 To fix the issue a HttpSession is needed. SingupController.java have methods called defaultMapping() (row 20) and loadForm() (row 25). A "httpSession.invalidate()" needs to be added into beginning of those methods to prevent the issue.
 
 
+
 ### **FLAW 2**
 
 #### *7. Cross-Site Scripting XSS*
@@ -52,6 +55,7 @@ Any kind of script which is entered in to the input field is executed when rende
 All input parameter values should be validated before saving. This can be done by using javascript to sanitize the input before sending its values. The goal is that the input does not accept "<" or ">" characters. Thus, for example, the script tag cannot be entered.
 
 
+
 ### **FLAW 3**
 
 #### *2. Broken Authentication*
@@ -71,13 +75,13 @@ As you can see there is not any verification before password reset. This could b
 the user. Also some minimum requirements for the password should be necessary, like length, upper and lower case characters etc.
 
 
+
 ### **FLAW 4**
 
 ##### *6. Security Misconfiguration*
 
 #### Description:
 Application does not have a proper security configuration. Username and password are not complex enough and therefore are easily hacked. Also the Csrf protection is disabled which makes attacks possible on the application. The last mention is the old Spring Framework version which becomes a security threat upon identification.
-
 
 #### How to reproduce:
 Case 1:
@@ -88,6 +92,7 @@ Case 2:
 #### How To fix:
 Case 1 can be fixed by updating the Spring Framework to its latest version. After that the server needs to be restarted.
 Case 2 can be fixed by removing "http.headers().disable();" (row 24) and "http.csrf().disable();" (row 23) from \src\main\java\sec\project\config\SecurityConfiguration.java
+
 
 
 ### **FLAW 5**
@@ -104,6 +109,7 @@ When site has been hacked or other unwanted activity is in progress an appropria
 
 #### How to fix:
 For example "logging.file.path" property can be added to application's properties and it allows application to print information to the console. This is a service that Spring Boot offers.
+
 
 
 ### **FLAW 6**
