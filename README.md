@@ -12,7 +12,7 @@
 
 ## Issues
 
-### **FLAW 1**
+## **FLAW 1**
 
 #### *3. Sensitive Data Exposure*
 
@@ -108,7 +108,7 @@ When site has been hacked or other unwanted activity is in progress an appropria
 For example "logging.file.path" property can be added to application's properties and it allows application to print information to the console. This is a service that Spring Boot offers.
 
 
-### **FLAW 6**
+## **FLAW 6**
 
 ##### *9. Using Components with Known Vulnerabilities*
 
