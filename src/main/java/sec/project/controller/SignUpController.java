@@ -38,7 +38,7 @@ public class SignupController {
         if (signupRepository.findByName(name).isEmpty()) {
             return name + " has not been registered";
         } else {
-            return name + " has already been registered with address " +
+            return name + " already registered with address " +
                 signupRepository.findByName(name).get(0).getAddress();
         }
     }
